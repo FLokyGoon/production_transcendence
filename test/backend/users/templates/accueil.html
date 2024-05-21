@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil Page</title>
+    {% include 'head_elements.html' %}
+</head>
+<body>
+    <div class="hero">
+        <div class="cube"></div><div class="cube"></div><div class="cube"></div>
+        <div class="cube"></div><div class="cube"></div><div class="cube"></div>
+    </div>
+    <div id="app-content">
+        <div id="profileData">
+        </div>
+        {% include 'header.html' %}
+        <div class="accueil-box">
+            <h2 style="text-align: center;">Welcome, {{ current_user.username }}</h1>
+            <button type="submit" onclick="window.location.href = '{% url 'matchmaking_remote' %}'" style=""> <span></span>
+            <span></span>
+            <span></span>Play</button>
+            <button type="submit" onclick="window.location.href = '{% url 'tournament' %}'"style=""> <span></span>
+                <span></span>
+                <span></span>Tournament</button>
+            <!-- <button type="submit" onclick="window.location.href = '{% url 'mode' %}'" style=""> <span></span> -->
+                    <!-- <span></span> -->
+                    <!-- <span></span>Mode</button> -->
+            <button type="submit" onclick="loadPageUsers('friend')" style=""> <span></span>
+                    <span></span>
+                    <span></span>Friends</button>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/router.js' %}"></script>
+</body>
+</html>
